@@ -45,7 +45,7 @@ searchHist = JSON.parse(localStorage.getItem('history'));
 
 function localData(z) {
     //this is the api call
-    fetch(`http://api.openweathermap.org/data/2.5/forecast?q=${z}&appid=${ApiKey}`).then(res => res.json()).then( (data) => {
+    fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${z}&appid=${ApiKey}`).then(res => res.json()).then( (data) => {
         console.log(data);
         const forecasts = [];
         //this will add the uniue days of forecasts to an array
@@ -80,7 +80,7 @@ function localData(z) {
 
 //this is the same function as above but with out interacting with search history
 function reLocalData(x) {
-    fetch(`http://api.openweathermap.org/data/2.5/forecast?q=${x}&appid=${ApiKey}`).then(res => res.json()).then( (data) => {
+    fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${x}&appid=${ApiKey}`).then(res => res.json()).then( (data) => {
         console.log(data);
         const forecasts = [];
         const dayforecast = data.list.filter(forecast => {
