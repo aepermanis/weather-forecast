@@ -42,7 +42,7 @@ searchHist = JSON.parse(localStorage.getItem('history'));
 
 
 function localData(z) {
-    fetch(`http://api.openweathermap.org/data/2.5/forecast?q=${z}&appid=${ApiKey}`).then(res => res.json()).then(data => {
+    fetch(`http://api.openweathermap.org/data/2.5/forecast?q=${z}&appid=${ApiKey}`).then(res => res.json()).then( (data) => {
         console.log(data);
         const forecasts = [];
         const dayforecast = data.list.filter(forecast => {
