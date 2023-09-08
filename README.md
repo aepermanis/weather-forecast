@@ -20,7 +20,7 @@ THEN I am again presented with current and future conditions for that city
 
 Use this app to search for the weather in a particular city. Simply type the city name into the search bar and the results will populate. You can also click on the recent searches to reload any city you may have prviously looked for.
 
-![alt text](assets/images/screenshot.png)
+![screenshot](/Screenshot%202023-09-08%20141639.png)
 
 ## Credits
 
