@@ -3,8 +3,6 @@ var ApiKey = 'bd1994739b70818283f6715e59b28bd9';
 
 const searchBtn = document.querySelector('.search-btn');
 
-const recentSearch = document.querySelectorAll('.search');
-
 const weatherFiveDays = document.querySelector('.weather-cards')
 
 const mainWeather = document.querySelector('.data')
@@ -59,13 +57,11 @@ function localData(z) {
         if(!searchHist.includes(z)){
             searchHist.push(z)
         }
-        let f = ''+ z
-        z.value = "";
         weatherFiveDays.innerHTML = "";
         mainWeather.innerHTML = ""
         dayforecast.forEach(weather => {
         if(weather === dayforecast[0]){
-            mainWeather.insertAdjacentHTML('beforeend', mainDisplay(weather, f))
+            mainWeather.insertAdjacentHTML('beforeend', mainDisplay(weather, z))
         }else {
             weatherFiveDays.insertAdjacentHTML('beforeend', createCard(weather));
         };
@@ -85,13 +81,16 @@ searchBtn.addEventListener('click', ()=>{
     const input = document.getElementById('city-text').value.trim();
     console.log(input);
     localData(input);
+    document.getElementById('city-text').value = "";
  }); 
+
+
+ const recentSearch = document.querySelectorAll('.search');
 
  for(let i = 0; i > recentSearch.length; i++) {
    recentSearch[i].addEventListener('click', (event) => {
-    const oldSearch = event.target.innerHTML;
+    const oldSearch = event.target.innerText;
     console.log(oldSearch);
     localData(oldSearch); 
-
 });
  }
