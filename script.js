@@ -20,8 +20,6 @@ function mainDisplay(w, f) {
 };
 
 
-
-
 function createCard(w) {
     return `<li class = "day">
     <h3>Date:${w.dt_txt.split(" ")[0]}</h3>
@@ -59,9 +57,11 @@ function localData(z) {
         }
         weatherFiveDays.innerHTML = "";
         mainWeather.innerHTML = ""
+        let f = '' + z;
+        z.value = '';
         dayforecast.forEach(weather => {
         if(weather === dayforecast[0]){
-            mainWeather.insertAdjacentHTML('beforeend', mainDisplay(weather, z))
+            mainWeather.insertAdjacentHTML('beforeend', mainDisplay(weather, f))
         }else {
             weatherFiveDays.insertAdjacentHTML('beforeend', createCard(weather));
         };
@@ -81,7 +81,6 @@ searchBtn.addEventListener('click', ()=>{
     const input = document.getElementById('city-text').value.trim();
     console.log(input);
     localData(input);
-    document.getElementById('city-text').value = "";
  }); 
 
 
